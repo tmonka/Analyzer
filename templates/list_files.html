@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список загруженных файлов</title>
+</head>
+<body>
+    <h2>Список загруженных файлов</h2>
+    <ul>
+        {% if files %}
+            {% for file in files %}
+                <li>
+                    {{ file }} - <a href="{{ url_for('analyze', filename=file) }}">Сделать резюме</a>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>Нет загруженных файлов.</li>
+        {% endif %}
+    </ul>
+    <a href="{{ url_for('upload') }}">Загрузить новый файл</a>
+    <br>
+    <a href="{{ url_for('logout') }}">Выйти</a>
+</body>
+</html>

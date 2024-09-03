@@ -1,0 +1,6 @@
+Flask
+gunicorn
+spacy
+PyPDF2
+flask_sqlalchemy
+flask_login

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Резюме документа</title>
+</head>
+<body>
+    <h2>Резюме для файла: {{ filename }}</h2>
+    <p>{{ summary }}</p>
+    <a href="{{ url_for('list_files') }}">Назад к списку файлов</a>
+    <br>
+    <a href="{{ url_for('logout') }}">Выйти</a>
+</body>
+</html>
