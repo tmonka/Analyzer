@@ -31,7 +31,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)  # Привязываем его к приложению Flask
 login_manager.login_view = 'login'  # Указываем маршрут для страницы логина
 
-openai.api_key = os.getenv('OPENAI_API_KEY', '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')
+openai.api_key = os.getenv('OPENAI_API_KEY', 'your_secrer_key')
 
 # Таблица для хранения данных о документах
 class Document(db.Model):
