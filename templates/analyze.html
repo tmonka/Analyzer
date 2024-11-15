@@ -2,13 +2,47 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Резюме документа</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результат анализа файла</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .content-box {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        pre {
+            text-align: left; /* Чтобы текст был слева, а не по центру */
+            white-space: pre-wrap; /* Сохранение всех переносов строк */
+            word-wrap: break-word; /* Перенос длинных слов */
+        }
+    </style>
 </head>
 <body>
-    <h2>Резюме для файла: {{ filename }}</h2>
-    <p>{{ summary }}</p>
-    <a href="{{ url_for('list_files') }}">Назад к списку файлов</a>
-    <br>
-    <a href="{{ url_for('logout') }}">Выйти</a>
+
+<div class="container centered">
+    <div class="content-box">
+        <h2>Результат анализа файла</h2>
+        <p><strong>Резюме:</strong></p>
+        <!-- Используем <pre> для сохранения форматирования -->
+        <pre>{{ summary }}</pre>
+
+        <p><strong>Имя файла:</strong> {{ filename }}</p>
+
+        <a href="{{ url_for('list_files') }}" class="btn btn-secondary">Назад к списку файлов</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

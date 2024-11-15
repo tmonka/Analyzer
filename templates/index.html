@@ -1,12 +1,39 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Главная страница</title>
+    <title>Вход</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 50px;
+        }
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Добро пожаловать!</h1>
-    <p>Это главная страница вашего приложения Flask.</p>
-    <a href="/login">Войти</a> | <a href="/register">Регистрация</a>
+    <h1>Вход</h1>
+
+    <form method="POST">
+        <label for="username">Имя пользователя:</label>
+        <input type="text" name="username" required>
+
+        <label for="password">Пароль:</label>
+        <input type="password" name="password" required>
+
+        <input type="submit" value="Войти">
+    </form>
+
+    <br><br>
+    <a href="{{ url_for('register') }}">Регистрация</a>
 </body>
 </html>

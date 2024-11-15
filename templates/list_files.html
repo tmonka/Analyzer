@@ -1,24 +1,54 @@
+<!-- list_files.html -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Список загруженных файлов</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загруженные файлы</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .file-list {
+            margin-top: 30px;
+        }
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .file-item a {
+            margin-left: 10px;
+        }
+        .btn-wrapper {
+            margin-top: 20px;
+        }
+    </style>
 </head>
-<body>
-    <h2>Список загруженных файлов</h2>
-    <ul>
-        {% if files %}
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <h1 class="text-center">Загруженные файлы</h1>
+
+        <ul class="list-group file-list">
             {% for file in files %}
-                <li>
-                    {{ file }} - <a href="{{ url_for('analyze', filename=file) }}">Сделать резюме</a>
+                <li class="list-group-item file-item">
+                    <span>{{ file }}</span>
+                    <a href="{{ url_for('analyze', filename=file) }}" class="btn btn-primary btn-sm">Суммаризация</a>
                 </li>
             {% endfor %}
-        {% else %}
-            <li>Нет загруженных файлов.</li>
-        {% endif %}
-    </ul>
-    <a href="{{ url_for('upload') }}">Загрузить новый файл</a>
-    <br>
-    <a href="{{ url_for('logout') }}">Выйти</a>
+        </ul>
+
+        <div class="btn-wrapper text-center">
+            <a href="{{ url_for('upload') }}" class="btn btn-success mt-3">Загрузить новый файл</a>
+            <a href="{{ url_for('compare_files') }}" class="btn btn-warning mt-3">Сравнить файлы</a>
+            <a href="{{ url_for('home') }}" class="btn btn-info mt-3">Назад</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger mt-3">Выход</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
+<a href="{{ url_for('registry') }}" class="btn btn-info mt-3">Реестр документов</a>
